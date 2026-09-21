@@ -1,0 +1,30 @@
+[Unit]
+Description=Calculator Spring Boot REST API
+After=syslog.target network.target mysql.service
+
+[Service]
+Type=simple
+User=ubuntu
+WorkingDirectory=/opt/calculator-app/backend
+
+# Path to the executable JAR file and any JVM options
+ExecStart=/usr/bin/java -Xms128m -Xmx512m -jar /opt/calculator-app/backend/calculator-backend-1.0.0.jar
+
+# Environment variables for database connection
+Environment="MYSQL_HOST=localhost"
+Environment="MYSQL_PORT=3306"
+Environment="MYSQL_DB=calculator_db"
+Environment="MYSQL_USER=calculator_user"
+Environment="MYSQL_PASSWORD=StrongPassword123!"
+
+# Auto-restart policy if application crashes
+Restart=always
+RestartSec=10
+
+# Standard output and error logging to systemd journal
+StandardOutput=journal
+StandardError=journal
+SyslogIdentifier=calculator-backend
+
+[Install]
+WantedBy=multi-user.target

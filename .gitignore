@@ -1,0 +1,25 @@
+# Java & Maven
+backend/target/
+*.class
+*.jar
+*.war
+.mvn/
+.metadata/
+
+# Node & Frontend
+frontend/node_modules/
+frontend/dist/
+frontend/.env.local
+frontend/.env.*.local
+
+# IDE & OS
+.idea/
+*.iml
+.vscode/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+Thumbs.db
+.DS_Store
